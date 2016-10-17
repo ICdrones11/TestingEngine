@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from drone import *
+from vector import * 
 import json
 
 # Class intented to parse a .data testcase file.
@@ -23,20 +24,10 @@ class TestCaseParser:
         startX = droneInfo["start_point"]["longitude"]
         startY = droneInfo["start_point"]["latitude"]
         startZ = droneInfo["start_point"]["altitude"]
-        startLocationVector = [startX, startY, startZ]
+        startLocationVector = Vector(startX, startY, startZ)
         endX = droneInfo["end_point"]["longitude"]
         endY = droneInfo["end_point"]["latitude"]
         endZ = droneInfo["end_point"]["altitude"]
-        endLocationVector = [endX, endY, endZ]
+        endLocationVector = Vector(endX, endY, endZ)
         startTime = droneInfo["start_time"]
         return Drone(did, startLocationVector, endLocationVector, startTime)
-
-def main():
-    t = TestCaseParser("/homes/dc3314/Desktop/GroupProject/" \
-                        "TestEngine/droneData/exampleDrone.data")
-    s = t.getDrones()
-    for drone in s:
-        drone.tick()
-
-if __name__ == "__main__":
-    main()
