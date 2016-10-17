@@ -32,9 +32,11 @@ class TestCaseParser:
         return Drone(did, startLocationVector, endLocationVector, startTime)
 
 def main():
-    t = TestCaseParser("/homes/dc3314/Desktop/GroupProject/TestEngine/droneData/exampleDrone.data")
+    t = TestCaseParser("/homes/dc3314/Desktop/GroupProject/" \
+                        "TestEngine/droneData/exampleDrone.data")
     s = t.getDrones()
-    print s
+    for drone in s:
+        drone.tick()
 
 if __name__ == "__main__":
     main()
