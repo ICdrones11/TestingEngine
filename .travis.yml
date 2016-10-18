@@ -1,3 +1,10 @@
 language: python
 notifications:
-    email: false
+    email:
+        - jm6214@ic.ac.uk
+        - jm6214@imperial.ac.uk
+        - jan.matas14@imperial.ac.uk
+        - jan.matas14@ic.ac.uk
+        - janci5243@gmail.com
+        - janci5243@googlemail.com
+        - matas@robostarter.com
