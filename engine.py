@@ -7,8 +7,7 @@ import testCaseParser
 
 
 def main():
-    drones = testCaseParser.getDrones("/homes/dc3314/Desktop/GroupProject/" \
-                        "TestEngine/droneData/exampleDrone.data")
+    drones = testCaseParser.getDrones("droneData/exampleDrone.json")
     messenger = DroneServerMessenger()
     #    # Initialization.
     #    for drone in drones:
