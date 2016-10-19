@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+
 class DroneStatus:
     HOVER = "hover"
     MOVE = "move"

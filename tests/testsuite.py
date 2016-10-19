@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-sys.path.append('/homes/dc3314/Desktop/GroupProject/TestEngine') 
+sys.path.append('/homes/dc3314/Desktop/GroupProject/TestEngine')
 # Adds upper directory to search path. TODO: Should NOT be hardcoded.
 
 from droneJsonParser import *
@@ -13,11 +13,12 @@ droneTestCase = "/homes/dc3314/Desktop/GroupProject/" \
 
 droneParser = DroneJsonParser(droneTestCase)
 
+
 class TestDroneJsonParser(unittest.TestCase):
 
     def testLoadJsonFile(self):
         droneParser = DroneJsonParser(droneTestCase)
-    
+
     @unittest.expectedFailure
     def testLoadNonExistingFile(self):
         nonExistingFile = 'null'
@@ -29,7 +30,7 @@ class TestDroneJsonParser(unittest.TestCase):
         expectedStartPoint = Point(-21.14936, 123.64184, 1.15)
         actualStartPoint = droneParser.getStartPoint()
         self.assertEquals(expectedStartPoint, actualStartPoint)
-        
+
         expectedEndPoint = Point(17.57878, -39.97062, 2.78)
         actualEndPoint = droneParser.getEndPoint()
         self.assertEquals(expectedEndPoint, actualEndPoint)
@@ -45,4 +46,3 @@ class TestDroneJsonParser(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -1,11 +1,13 @@
 #!/usr/bin/python
 
 from drone import *
-from vector import * 
+from vector import *
 import json
+
 
 # Class intented to parse a .data testcase file.
 class TestCaseParser:
+
     def __init__(self, filename):
         self.fp = open(filename, "r")
         self.jsonData = json.load(self.fp)
