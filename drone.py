@@ -10,7 +10,8 @@ class Drone:
     # Initializes the drone with given droneInfo dictionnary.
     def __init__(self, did, startLocationVector, endLocationVector, startTime):
         self.did = did
-        self.velocityVector = Vector(5, 5, 0)
+        # Velocity vector hardcoded so that we go from SK to Hammersmith in 10 ticks 
+        self.velocityVector = Vector(-0.219797336281772 * 100, -4.264274850190377 * 100, 0)
         self.startLocationVector = startLocationVector
         self.currentLocationVector = startLocationVector
         self.endLocationVector = endLocationVector

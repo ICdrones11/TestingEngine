@@ -9,7 +9,7 @@ from drone import *
 class DroneServerMessenger:
 
     def __init__(self):
-        self.baseAddress = 'http://dronesservice.azurewebsites.net/api'
+        self.baseAddress = 'http://localhost:5000/api' #'http://dronesservice.azurewebsites.net/api'
         self.fullAddress = self.baseAddress + '/drone'
         self.tickingAddress = self.baseAddress + '/test'
 
@@ -31,6 +31,7 @@ class DroneServerMessenger:
         el = drone.endLocationVector
         vel = drone.velocityVector
         loc = drone.currentLocationVector
+        print(loc)
         payload = {
             'uid': drone.did,
             'startPoint': {
