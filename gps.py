@@ -2,11 +2,12 @@
 import math
 from vector import *
 
-# EARTH_RADIUS = 6398000  #Earth radius in meters
-EARTH_RADIUS = 6367000 # Earth radius in m
+EARTH_RADIUS = 6367000 # Earth radius in m TODO: verify accuracy.
+
 # Calculations in this module implemented using equations at:
 # http://www.geom.uiuc.edu/docs/reference/CRC-formulas/node42.html
 SK = Vector(-0.174685, 51.494150, 200)
+
 # Calculate the terrestrial location
 def computeTerrestrialCoordinates(polarCoordinates):
     lon, lat, alt = polarCoordinates.unbox()
