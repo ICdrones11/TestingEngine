@@ -3,7 +3,7 @@
 from droneStatus import *
 from droneServerMessenger import *
 from vector import *
-from gps import *
+import gps
 
 
 class Drone:
@@ -16,7 +16,6 @@ class Drone:
         self.endLocationVector = endLocationVector
         self.startTime = startTime
         self.status = DroneStatus.HOVER  # Initially, the drone is not moving.
-        self.gps = Gps()
 
     # Defined to allow sorting of drones.
     def __lt__(self, other):
@@ -51,7 +50,7 @@ class Drone:
         desiredY = instr["desiredVelocity"]["y"]
         desiredZ = instr["desiredVelocity"]["z"]
         desiredVelocityVector = Vector(desiredX, desiredY, desiredZ)
-        currentLocationVector = self.gps.computeNextPolarLocation(
+        currentLocationVector = gps.computeNextPolarLocation(
             desiredVelocityVector, self.currentLocationVector)
         print currentLocationVector
         return 0

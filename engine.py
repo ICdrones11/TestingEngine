@@ -3,13 +3,12 @@
 
 from drone import *
 from droneServerMessenger import *
-from testCaseParser import *
+import testCaseParser
 
 
 def main():
-    t = TestCaseParser("/homes/dc3314/Desktop/GroupProject/" \
+    drones = testCaseParser.getDrones("/homes/dc3314/Desktop/GroupProject/" \
                         "TestEngine/droneData/exampleDrone.data")
-    drones = t.getDrones()
     messenger = DroneServerMessenger()
     #    # Initialization.
     #    for drone in drones:
