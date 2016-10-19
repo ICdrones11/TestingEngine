@@ -2,8 +2,8 @@
 
 
 class DroneStatus:
-    HOVER = "hover"
-    MOVE = "move"
-    LAND = "land"
-    LOST = "lost"
-    DEAD = "dead"
+    HOVER = "HOVER"
+    MOVE = "MOVE"
+    LAND = "LAND"
+    LOST = "LOST"
+    DEAD = "DEAD"

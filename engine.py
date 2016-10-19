@@ -9,12 +9,10 @@ import testCaseParser
 def main():
     drones = testCaseParser.getDrones("droneData/exampleDrone.json")
     messenger = DroneServerMessenger()
-    #    # Initialization.
-    #    for drone in drones:
-    #        messenger.postDroneRequestToServer(drone)
-
-    for drone in drones:
-        drone.getInstructions(messenger)
+    for i in range(10):
+        for drone in drones:
+            drone.tick(messenger)
+        messenger.notifyServerForTick()
 
 
 if __name__ == "__main__":

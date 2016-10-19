@@ -10,7 +10,7 @@ class Drone:
     # Initializes the drone with given droneInfo dictionnary.
     def __init__(self, did, startLocationVector, endLocationVector, startTime):
         self.did = did
-        self.velocityVector = Vector(0, 0, 0)
+        self.velocityVector = Vector(5, 5, 0)
         self.startLocationVector = startLocationVector
         self.currentLocationVector = startLocationVector
         self.endLocationVector = endLocationVector
@@ -39,9 +39,14 @@ class Drone:
 
     # The function simulating the drone's CPU.
     def tick(self, messenger):
+        #instr = self.getInstructions(messenger)
+        #self.processInstructions(instr)
+        self.computeNextLocation()
         self.updateServer(messenger)
-        instr = self.getInstructions(messenger)
-        self.processInstructions(instr)
+
+    def computeNextLocation(self):
+        self.currentLocationVector = gps.computeNextPolarLocation(
+            self.velocityVector, self.currentLocationVector)
 
     # Process instructions received from server.
     # For the moment just assumes the drone is allowed to move.
@@ -52,5 +57,3 @@ class Drone:
         desiredVelocityVector = Vector(desiredX, desiredY, desiredZ)
         currentLocationVector = gps.computeNextPolarLocation(
             desiredVelocityVector, self.currentLocationVector)
-        print currentLocationVector
-        return 0
