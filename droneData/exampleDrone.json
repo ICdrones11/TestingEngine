@@ -2,18 +2,18 @@
     "drones": [
         {
             "did" : "d1",
-            "start_time": 45,
+            "start_time": 0,
             "start_point": 
             { 
                 "latitude" : 51.494150,
                 "longitude" : -0.174685,
-                "altitude" :  2000
+                "altitude" :  200
             },
             "end_point": 
              {
                 "latitude" : 51.4911875,
                 "longitude" : -0.2237315,
-                "altitude" : 2000
+                "altitude" : 200
             }
         }
     ]

@@ -5,13 +5,12 @@ from droneServerMessenger import *
 from vector import *
 import gps
 
-
 class Drone:
     # Initializes the drone with given droneInfo dictionnary.
     def __init__(self, did, startLocationVector, endLocationVector, startTime):
         self.did = did
         # Velocity vector hardcoded so that we go from SK to Hammersmith in 10 ticks 
-        self.velocityVector = Vector(-0.219797336281772 * 100, -4.264274850190377 * 100, 0)
+        self.velocityVector = Vector(-219.797336281772 / 10, -4264.274850190377 / 10, 257.61475772469566 / 10)
         self.startLocationVector = startLocationVector
         self.currentLocationVector = startLocationVector
         self.endLocationVector = endLocationVector
