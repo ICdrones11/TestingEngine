@@ -24,7 +24,6 @@ def calcJourneyVelocity(startPolar, endPolar, journeyDuration):
             vz
             )
 
-
 def getPolarInput():
     lat = input("Enter latitude: ")
     lon = input("Enter longitude: ")
