@@ -1,12 +1,12 @@
 #!/usr/bin/python
-
 import math
 from vector import *
 
 EARTH_RADIUS = 6398000  #Earth radius in meters
 
-
+# Calculations in this module implemented using equations at:
 # http://www.geom.uiuc.edu/docs/reference/CRC-formulas/node42.html
+
 # Calculate the terrestrial location
 def computeTerrestrialCoordinates(polarCoordinates):
     lon, lat, alt = polarCoordinates.unbox()
