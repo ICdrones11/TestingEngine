@@ -1,6 +1,5 @@
 #!/usr/bin/python
 # Wrapper around the REST API
-
 import config
 import requests
 import json
