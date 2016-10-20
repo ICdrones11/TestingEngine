@@ -2,7 +2,8 @@
 import math
 from vector import *
 
-EARTH_RADIUS = 6367000 # Earth radius in m TODO: verify accuracy.
+#Mean Earth Radius in m
+EARTH_RADIUS = 6371000 
 
 # Calculations in this module implemented using equations at:
 # http://www.geom.uiuc.edu/docs/reference/CRC-formulas/node42.html
