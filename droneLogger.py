@@ -3,40 +3,35 @@ import json
 
 class DroneLogger:
 
-    def __init__():
+    def __init__(self):
         self.drones = {}
-        pass
 
-    def log(drone, timeUnit):
+    def log(self, drone, timeUnit):
         uid = drone.did
-        polar = drone.currentLocationVector
-        timeUnit = timeUnit
-        if (self.drones[uid] == None):
+        lon, lat, alt = drone.currentLocationVector.unbox()
+        if (not (uid in self.drones)):
             self.drones[uid] = {
-                uid: uid,
-                waypoints: []
+                'uid': uid,
+                'waypoints': []
             }
 
-        self.drones[uid].waypoints.append({
-            lat: polar.lat,
-            lon: polar.lon,
-            alt: polar.alt,
-            timestamp: timeUnit
+        self.drones[uid]['waypoints'].append({
+            'lat': lon,
+            'lon': lat,
+            'alt': alt,
+            'timestamp': timeUnit
         })
 
     # saves the current info as a JSON file in spe
-    def save(outputPath):
+    def save(self, outputPath):
         outfile = open(outputPath, 'w+')
-        output = getListRepresentation()
-        json.dump(output, output)
+        output = self.getListRepresentation()
+        json.dump(output, outfile)
 
     # Converts drone dictionary into list
-    def getListRepresentation():
+    def getListRepresentation(self):
         res = []
         for uid, drone in self.drones.iteritems():
-            res.append({
-                uid: uid,
-                waypoints: drone.waypoints
-            })
+            res.append(drone)
 
         return  res
