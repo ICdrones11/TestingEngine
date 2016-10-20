@@ -2,7 +2,7 @@
 
 from drone import *
 from vector import *
-import vector
+from coordinate import *
 import json
 
 
@@ -20,13 +20,13 @@ def getDrones(filename):
 # Parses the dictionnary, and returns a drone from it.
 def createDroneFromDictionnary(droneInfo):
     did = droneInfo["did"]
-    startX = droneInfo["start_point"]["longitude"]
-    startY = droneInfo["start_point"]["latitude"]
-    startZ = droneInfo["start_point"]["altitude"]
-    startLocationVector = Vector(startX, startY, startZ)
-    endX = droneInfo["end_point"]["longitude"]
-    endY = droneInfo["end_point"]["latitude"]
-    endZ = droneInfo["end_point"]["altitude"]
-    endLocationVector = Vector(endX, endY, endZ)
+    startLon = droneInfo["start_point"]["longitude"]
+    startLat = droneInfo["start_point"]["latitude"]
+    startAlt = droneInfo["start_point"]["altitude"]
+    endLon = droneInfo["end_point"]["longitude"]
+    endLat = droneInfo["end_point"]["latitude"]
+    endAlt = droneInfo["end_point"]["altitude"]
+    startPolar = PolarCoordinate(startLat, startLon, startAlt)
+    endPolar = PolarCoordinate(endLat, endLon, endAlt)
     startTime = droneInfo["start_time"]
-    return Drone(did, startLocationVector, endLocationVector, startTime)
+    return Drone(did, startPolar, endPolar, startTime)

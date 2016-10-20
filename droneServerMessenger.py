@@ -5,10 +5,11 @@ import requests
 import json
 from drone import *
 
+
 class DroneServerMessenger:
 
     def __init__(self):
-        baseAddress = config.SERVER_BASE_ADDR #'http://dronesservice.azurewebsites.net/api'
+        baseAddress = config.SERVER_BASE_ADDR  #'http://dronesservice.azurewebsites.net/api'
         self.fullAddress = baseAddress + '/drone'
         self.tickingAddress = baseAddress + '/test'
 
@@ -26,21 +27,22 @@ class DroneServerMessenger:
     # Update the server using a PUT request.
     def updateServer(self, drone):
         headers = {'content-type': 'application/json'}
-        sl = drone.startLocationVector
-        el = drone.endLocationVector
+        startPolar = drone.startPolar
+        endPolar = drone.endPolar
         vel = drone.velocityVector
-        loc = drone.currentLocationVector
+        currentPolar = drone.currentPolar
         payload = {
-            'uid': drone.did,
+            'uid':
+                drone.did,
             'startPoint': {
-                'x': sl.x,
-                'y': sl.y,
-                'z': sl.z
+                'x': startPolar.lat(),
+                'y': startPolar.lon(),
+                'z': startPolar.alt()
             },
             'endPoint': {
-                'x': el.x,
-                'y': el.y,
-                'z': el.z
+                'x': endPolar.lat(),
+                'y': endPolar.lon(),
+                'z': endPolar.alt()
             },
             'velocity': {
                 'x': vel.x,
@@ -48,11 +50,12 @@ class DroneServerMessenger:
                 'z': vel.z
             },
             'position': {
-                'x': loc.x,
-                'y': loc.y,
-                'z': loc.z
+                'x': currentPolar.lat(),
+                'y': currentPolar.lon(),
+                'z': currentPolar.alt()
             },
-            'status': drone.status
+            'status':
+                drone.status
         }
         url = self.fullAddress + '/' + drone.did
         response = requests.put(url, data=json.dumps(payload), headers=headers)

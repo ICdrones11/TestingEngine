@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import json
 
+
 class DroneLogger:
 
     def __init__(self):
@@ -8,16 +9,13 @@ class DroneLogger:
 
     def log(self, drone, timeUnit):
         uid = drone.did
-        lat, lon, alt = drone.currentLocationVector.unbox()
+        lat, lon, alt = drone.currentPolar.unbox()
         if (not (uid in self.drones)):
-            self.drones[uid] = {
-                'uid': uid,
-                'waypoints': []
-            }
+            self.drones[uid] = {'uid': uid, 'waypoints': []}
 
         self.drones[uid]['waypoints'].append({
-            'lat': lon,
-            'lon': lat,
+            'lat': lat,
+            'lon': lon,
             'alt': alt,
             'timestamp': timeUnit
         })
@@ -33,5 +31,4 @@ class DroneLogger:
         res = []
         for uid, drone in self.drones.iteritems():
             res.append(drone)
-
-        return  res
+        return res
