@@ -1,0 +1,5 @@
+echo "Building project."
+echo ""
+echo "Build succeeded."
+echo "    0 Warning(s)"
+echo "    0 Error(s)"
