@@ -1,0 +1,1 @@
+SERVER_BASE_ADDR = 'http://localhost:5000/api'

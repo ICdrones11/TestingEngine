@@ -1,17 +1,17 @@
 #!/usr/bin/python
 # Wrapper around the REST API
 
+import config
 import requests
 import json
 from drone import *
 
-
 class DroneServerMessenger:
 
     def __init__(self):
-        self.baseAddress = 'http://localhost:5000/api' #'http://dronesservice.azurewebsites.net/api'
-        self.fullAddress = self.baseAddress + '/drone'
-        self.tickingAddress = self.baseAddress + '/test'
+        baseAddress = config.SERVER_BASE_ADDR #'http://dronesservice.azurewebsites.net/api'
+        self.fullAddress = baseAddress + '/drone'
+        self.tickingAddress = baseAddress + '/test'
 
     # A GET request to the API.
     def getInstructionsFromServer(self, drone):
@@ -31,7 +31,6 @@ class DroneServerMessenger:
         el = drone.endLocationVector
         vel = drone.velocityVector
         loc = drone.currentLocationVector
-        print(loc)
         payload = {
             'uid': drone.did,
             'startPoint': {
