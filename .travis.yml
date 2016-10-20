@@ -1,4 +1,14 @@
 language: python
+sudo: required
+dist: trusty
+os: linux
+branches:
+    only:
+        - master
+install:
+    - chmod +x build.sh
+script:
+    - sh ./build.sh
 notifications:
     email:
         - jm6214@ic.ac.uk
