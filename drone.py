@@ -43,13 +43,3 @@ class Drone:
     def computeNextLocation(self):
         self.currentPolar = gps.computeNextPolar(self.velocityVector,
                                                  self.currentPolar)
-
-    # Process instructions received from server.
-    # For the moment just assumes the drone is allowed to move.
-    def processInstructions(self, instr):
-        desiredX = instr["desiredVelocity"]["x"]
-        desiredY = instr["desiredVelocity"]["y"]
-        desiredZ = instr["desiredVelocity"]["z"]
-        desiredVelocityVector = Vector(desiredX, desiredY, desiredZ)
-        currentLocationVector = gps.computeNextPolarLocation(
-            desiredVelocityVector, self.currentLocationVector)

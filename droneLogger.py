@@ -13,6 +13,7 @@ class DroneLogger:
         if (not (uid in self.drones)):
             self.drones[uid] = {'uid': uid, 'waypoints': []}
 
+#        print '{}, {}, {}'.format(lat, lon, alt) 
         self.drones[uid]['waypoints'].append({
             'lat': lat,
             'lon': lon,

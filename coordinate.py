@@ -16,18 +16,22 @@ class PolarCoordinate:
     def __init__(self, lat, lon, alt):
         self.position = Vector(lat, lon, alt)
 
+    @property
     def lat(self):
         return self.position.x
 
+    @property
     def lon(self):
         return self.position.y
 
+    @property
     def alt(self):
         return self.position.z
 
     def unbox(self):
         return self.position.unbox()
 
+    # Calculate the cartesian equivalent.
     def toCartesian(self):
         lat, lon, alt = self.unbox()
         lonRad = math.radians(lon)
@@ -44,18 +48,22 @@ class CartesianCoordinate:
     def __init__(self, x, y, z):
         self.position = Vector(x, y, z)
 
+    @property
     def x(self):
         return self.position.x
 
+    @property
     def y(self):
         return self.position.y
 
+    @property
     def z(self):
         return self.position.z
 
     def unbox(self):
         return self.position.unbox()
 
+    # Calculate the next position after moving 1 second given the velocity.
     def nextLocation(self, velocityVector):
         vx, vy, vz = velocityVector.unbox()
         x, y, z = self.unbox()
@@ -64,10 +72,12 @@ class CartesianCoordinate:
         newZ = z + vz
         return CartesianCoordinate(newX, newY, newZ)
 
+    # Calculate the polar equivalent.
     def toPolar(self):
         x, y, z = self.unbox()
         r = math.sqrt(x**2 + y**2 + z**2)
-        lat = math.degrees(math.asin(z / r))
+        numerator = math.sqrt(x**2 + y**2)
+        lat = math.degrees(math.atan2(numerator, z))
         lon = math.degrees(math.atan2(y, x))
         alt = r - EARTH_RADIUS
         return PolarCoordinate(lat, lon, alt)

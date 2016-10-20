@@ -9,7 +9,7 @@ from drone import *
 class DroneServerMessenger:
 
     def __init__(self):
-        baseAddress = config.SERVER_BASE_ADDR  #'http://dronesservice.azurewebsites.net/api'
+        baseAddress = config.SERVER_BASE_ADDR
         self.fullAddress = baseAddress + '/drone'
         self.tickingAddress = baseAddress + '/test'
 
@@ -35,14 +35,14 @@ class DroneServerMessenger:
             'uid':
                 drone.did,
             'startPoint': {
-                'x': startPolar.lat(),
-                'y': startPolar.lon(),
-                'z': startPolar.alt()
+                'x': startPolar.lat,
+                'y': startPolar.lon,
+                'z': startPolar.alt
             },
             'endPoint': {
-                'x': endPolar.lat(),
-                'y': endPolar.lon(),
-                'z': endPolar.alt()
+                'x': endPolar.lat,
+                'y': endPolar.lon,
+                'z': endPolar.alt
             },
             'velocity': {
                 'x': vel.x,
@@ -50,9 +50,9 @@ class DroneServerMessenger:
                 'z': vel.z
             },
             'position': {
-                'x': currentPolar.lat(),
-                'y': currentPolar.lon(),
-                'z': currentPolar.alt()
+                'x': currentPolar.lat,
+                'y': currentPolar.lon,
+                'z': currentPolar.alt
             },
             'status':
                 drone.status
