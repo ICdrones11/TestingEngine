@@ -2,10 +2,13 @@
 # The main test engine
 
 import testCaseParser
+import webbrowser
 
 from drone import *
 from droneServerMessenger import *
 from droneLogger import *
+
+from config import SERVER_BASE_ADDR
 
 def main():
     drones = testCaseParser.getDrones("droneData/exampleDrone.json")
@@ -27,6 +30,11 @@ def main():
     # Simulation finished, write logs to a file
     outputPath = "output/output.json"
     logger.save(outputPath)
+
+    #URL to pass into web browser to visualise given simulation
+    visURL = SERVER_BASE_ADDR + "/#" + outputPath
+    webbrowser.open(url, new=1)
+
 
 if __name__ == "__main__":
     main()
