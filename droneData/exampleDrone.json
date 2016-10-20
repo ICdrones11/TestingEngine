@@ -7,13 +7,13 @@
             { 
                 "latitude" : 51.494150,
                 "longitude" : -0.174685,
-                "altitude" :  200
+                "altitude" : 1500
             },
             "end_point": 
              {
                 "latitude" : 51.4911875,
                 "longitude" : -0.2237315,
-                "altitude" : 200
+                "altitude" : 1500
             }
         }
     ]

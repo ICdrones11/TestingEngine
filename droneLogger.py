@@ -8,7 +8,7 @@ class DroneLogger:
 
     def log(self, drone, timeUnit):
         uid = drone.did
-        lon, lat, alt = drone.currentLocationVector.unbox()
+        lat, lon, alt = drone.currentLocationVector.unbox()
         if (not (uid in self.drones)):
             self.drones[uid] = {
                 'uid': uid,

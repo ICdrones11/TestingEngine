@@ -1,0 +1,70 @@
+[
+{
+	"id": 1,
+	"waypoints" :[
+	{
+		"lat": 57.3,
+		"lon": 123.5,
+		"alti": 2000,
+		"timestamp":0
+	},
+	{
+		"lat": 59.6,
+		"lon": 125.4,
+		"alti": 2000,
+		"timestamp":2
+	},
+	{
+		"lat": 60,
+		"lon": 125.7,
+		"alti": 2500,
+		"timestamp":3
+	},
+	{
+		"lat": 60.3,
+		"lon": 125.8,
+		"alti": 2500,
+		"timestamp":5
+	},
+	{
+		"lat": 60.8,
+		"lon": 125.9,
+		"alti": 2300,
+		"timestamp":7
+	}]
+},
+{
+	"id": 2,
+	"waypoints" :[
+	{
+		"lat": 57.3,
+		"lon": 120.5,
+		"alti": 2000,
+		"timestamp":4
+	},
+	{
+		"lat": 58.4,
+		"lon": 125.4,
+		"alti": 2000,
+		"timestamp":5
+	},
+	{
+		"lat": 58.5,
+		"lon": 125.9,
+		"alti": 2000,
+		"timestamp":6
+	},
+	{
+		"lat": 58.7,
+		"lon": 125.4,
+		"alti": 2000,
+		"timestamp":8
+	},
+	{
+		"lat": 59,
+		"lon": 125.1,
+		"alti": 2000,
+		"timestamp":9
+	}]
+}
+]
