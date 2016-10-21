@@ -8,8 +8,6 @@ from drone import *
 from droneServerMessenger import *
 from droneLogger import *
 
-from config import SERVER_BASE_ADDR
-
 def main():
     drones = testCaseParser.getDrones("droneData/exampleDrone.json")
     messenger = DroneServerMessenger()
@@ -33,8 +31,8 @@ def main():
     logger.save(outputPath)
 
     #URL to pass into web browser to visualise given simulation
-    visURL = SERVER_BASE_ADDR + "/#" + outputPath
-    webbrowser.open(url, new=1)
+    visURL = "http://localhost:8080/visualiser/#../" + outputPath
+    webbrowser.open(visURL, new=1)
 
 
 if __name__ == "__main__":
