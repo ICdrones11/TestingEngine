@@ -45,24 +45,23 @@ function JsonFileSelector(fileInput, updateStatus, onJSONCb) {
         var files = evt.target.files; // FileList object
 
         // files is a FileList of File objects. Display information from json file.
-        var output = [];
-        for (var i = 0, f; f = files[i]; i++) {
-          var reader = new FileReader();
+        Array.from(files).forEach(function(file) {
+            // Read in each file.
+            var reader = new FileReader();
 
-          // Closure to capture the file information.
-          reader.onloadend = (function(theFile) {
-            return function(e) {
+             // Closure to capture the file information.
+            reader.onloadend = function(e) {
+                updateStatus('Loaded local file "' +  file.name + '".');
                 $.getJSON(reader.result)
                 .done(function(drones) {
                     onJSONCb(drones);
                 })
-
             };
-          })(f);
-
+         
           // Read in the json file as a data URL.
-          reader.readAsDataURL(f);
-        }
+          reader.readAsDataURL(file);
+        });
+       
     }
 
     fileInput.addEventListener('change', handleFileSelect, false);

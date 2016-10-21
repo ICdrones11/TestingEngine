@@ -10,7 +10,6 @@ window.addEventListener('load', function() {
     var selector = new JsonFileSelector(fileInput, updateStatus, visualiseData);
 
     function visualiseData(drones) {
-        console.log('cb', drones);
         computeCirclularFlight(drones);
         // TODO: Implement Cesium visualisation here.
     }
@@ -66,7 +65,6 @@ window.addEventListener('load', function() {
               
         });
         viewer.zoomTo(viewer.entities, new Cesium.HeadingPitchRange(Cesium.Math.toRadians(-90), Cesium.Math.toRadians(-15), 7500));
-
     }
 
     //Compute the entity position property.
