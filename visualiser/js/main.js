@@ -15,8 +15,6 @@ window.addEventListener('load', function() {
         // TODO: Implement Cesium visualisation here.
     }
 
-
-
     var viewer = new Cesium.Viewer('cesiumContainer', {
         terrainProviderViewModels : [], //Disable terrain changing
         infoBox : false, //Disable InfoBox widget
@@ -59,22 +57,25 @@ window.addEventListener('load', function() {
 
     //Generate a random circular pattern with varying heights.
     function computeCirclularFlight(drones) {
-        drones.forEach(function(drone,k) {
-                var property = new Cesium.SampledPositionProperty();
-                var waypoints = drone.waypoints;
-                var colours = [Cesium.Color.YELLOW , Cesium.Color.RED];
+        drones.forEach(function(droneFlight,k) {
+               
 
-                representDrone(property, drone.waypoints, colours[k]);
+                representDrone(droneFlight);
                 
-                //Actually add the drone entity
-                addEntity(property, colours[k]);
               
-            });
+              
+        });
+        viewer.zoomTo(viewer.entities, new Cesium.HeadingPitchRange(Cesium.Math.toRadians(-90), Cesium.Math.toRadians(-15), 7500));
+
     }
 
     //Compute the entity position property.
 
-    function representDrone(property, waypoints, colour) {
+    function representDrone(droneFlight) {
+        var property = new Cesium.SampledPositionProperty();
+        var waypoints = droneFlight.waypoints;
+        var colour = Cesium.Color.RED;
+
         waypoints.forEach(function(point, i) {
             var time = Cesium.JulianDate.addSeconds(start, point.timestamp, new Cesium.JulianDate());
             var position = Cesium.Cartesian3.fromDegrees(point.lon, point.lat, point.alt);
@@ -90,6 +91,9 @@ window.addEventListener('load', function() {
                 }
             });
         });
+
+          //Actually add the drone entity
+        addEntity(property, colour);
     }
 
     function addEntity(property, colour) {
