@@ -1,21 +1,50 @@
-{ 
-    "drones": [
-        {
-            "did" : "d1",
-            "start_time": 0,
-            "start_point": 
-            { 
-                "latitude" : 51.494150,
-                "longitude" : -0.174685,
-                "altitude" : 1500
-            },
-            "end_point": 
-             {
-                "latitude" : 51.4911875,
-                "longitude" : -0.2237315,
-                "altitude" : 1500
-            }
-        }
+  {
+    "name" : "Test 1",
+    "timeLimit" : 100,
+    "drones" :
+    [
+      {
+        "uid" : "d1",
+        "startTime" : 1,
+        "waypoints" :
+        [
+          { "lng" : 1.0, "lat" : 2.0, "alt" : 50.0 },
+          { "lng" : 2.0, "lat" : 4.0, "alt" : 75.0 }
+        ],
+        "actions" :
+        [
+          {
+            "action" : "move",
+            "target" : { "lng" : 1.0, "lat" : 2.0, "alt" : 50.0 },
+            "startTime" : 2,
+            "ttl" : 4
+          },
+          {
+            "action" : "loseConnection",
+            "startTime" : 3,
+            "ttl" : -1
+          },
+          {
+            "action": "land",
+            "startTime" : 5
+          }
+        ]
+      }
+    ],
+    "noFlyZones" :
+    [
+      { "<Additional geoJSON data>" : "<Additional geoJSON data>" }
+    ],
+    "mannedAviation" :
+    [
+      {
+        "startTime" : 1,
+        "waypoints" : [
+          { "lng" : 1.0, "lat" : 2.0, "alt" : 50.0 },
+          { "lng" : 2.0, "lat" : 4.0, "alt" : 75.0 }
+        ],
+        "speed" : 10
+      }
     ]
-}
+  }
 
