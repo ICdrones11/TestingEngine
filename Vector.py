@@ -14,3 +14,9 @@ class Vector:
 
     def unbox(self):
         return self.x, self.y, self.z
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y and self.z == other.z
+
+    def __str__(self):
+        return '{}, {}, {}\n'.format(self.x, self.y, self.z)

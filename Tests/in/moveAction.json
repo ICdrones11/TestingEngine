@@ -1,0 +1,6 @@
+{
+"action" : "move",
+"target" : { "lng" : 1.0, "lat" : 2.0, "alt" : 50.0 },
+"startTime" : 2,
+"ttl" : 4
+}

@@ -1,0 +1,5 @@
+{
+"action" : "loseConnection",
+"startTime" : 3,
+"ttl" : -1
+}

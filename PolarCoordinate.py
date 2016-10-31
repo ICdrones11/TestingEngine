@@ -21,4 +21,8 @@ class PolarCoordinate:
     def unbox(self):
         return self.position.unbox()
 
+    def __eq__(self, other):
+        return self.position == other.position
 
+    def __str__(self):
+        return str(self.position)

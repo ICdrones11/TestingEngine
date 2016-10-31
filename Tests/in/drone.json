@@ -1,0 +1,27 @@
+{
+        "uid" : "d1",
+        "startTime" : 1,
+        "waypoints" :
+        [
+          { "lng" : 1.0, "lat" : 2.0, "alt" : 50.0 },
+          { "lng" : 2.0, "lat" : 4.0, "alt" : 75.0 }
+        ],
+        "actions" :
+        [
+          {
+            "action" : "move",
+            "target" : { "lng" : 1.0, "lat" : 2.0, "alt" : 50.0 },
+            "startTime" : 2,
+            "ttl" : 4
+          },
+          {
+            "action" : "loseConnection",
+            "startTime" : 3,
+            "ttl" : -1
+          },
+          {
+            "action": "land",
+            "startTime" : 5
+          }
+        ]
+      }

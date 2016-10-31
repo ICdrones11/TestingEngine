@@ -1,0 +1,3 @@
+SERVER_BASE_ADDR = "http://droneservice.azurewebsites.net/api"
+TOWER_LONDON_EASTING = 702896.02
+TOWER_LONDON_NORTHING = 5710431.43

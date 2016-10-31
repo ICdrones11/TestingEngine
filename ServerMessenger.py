@@ -1,13 +1,14 @@
 #!/usr/bin/python
-import Config
 import requests
 import json
+
+import Constants
 from Drone import *
 
 
 class ServerMessenger:
     def __init__(self):
-        baseAddress = Config.SERVER_BASE_ADDR
+        baseAddress = Constants.SERVER_BASE_ADDR
         self.fullAddress = baseAddress + '/drone'
         self.tickingAddress = baseAddress + '/test'
 

@@ -10,6 +10,7 @@ from WayPointList import WayPointList
 
 
 class TestCaseParser:
+
     def __init__(self, folderName):
         self.files = glob.glob('{}/*.json'.format(folderName))
 
@@ -27,20 +28,23 @@ class TestCaseParser:
         return Action(act, startTime, target, ttl)
 
 
+
     def parseDrone(self, droneData):
+        uid = droneData["uid"]
         startTime = int(droneData["startTime"])
         pointList = WayPointList(droneData["waypoints"])
         actionsList = droneData["actions"]
         actions = []
         for actionData in actionsList:
             actions.append(self.parseAction(actionData))
-        return Drone(startTime, pointList, actions.sort())
+        return Drone(uid, startTime, pointList, actions.sort())
 
 
-    def parseDrones(self, droneList):
+    def parseDrones(self, dronesJson):
         drones = set()
-        for droneData in droneList:
+        for droneData in dronesJson:
             drones.add(self.parseDrone(droneData))
+        return drones
 
 
     def load(self, fileName):

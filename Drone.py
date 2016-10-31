@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import PositionConversions
 from Action import Action
 from Logger import Logger
 from DroneStatus import *
@@ -15,54 +16,42 @@ class Drone:
         self.actions = actions # Actions are sorted
         self.logger = Logger()
         assert waypoints
-        self.polarPosition = PolarCoordinate(*waypoints[0].values())
+        self.polarPosition = PolarCoordinate(*waypoints.pointList[0].values())
         self.velocity = Vector()
-        self.ttl = 0
-
-    def initialize(self):
-        pass
+        self.actionTtl = 0
+        self.status = DroneStatus.HOVER
 
     def getLogger(self):
         return self.logger
 
     def land(self):
-        pass
+        self.status = DroneStatus.LAND
+        self.velocity = Vector(0, 0, -5)
 
     def move(self):
         pass
+        #self.polarPosition = PositionConversions.nextPolar(self.polarPosition, self.velocity)
+        #print self.polarPosition
+
 
     def log(self):
         pass
-
-    def continueMove(self):
-        pass
-
-
-    def execute(self, action):
-        act = action.act
-        self.ttl = action.ttl
-        if act == Action.MOVE:
-            self.move()
-        if act == Action.LAND:
-          self.land()
-        if act == Action.LOSE_CONNECTION:
-            self.continueMove()
 
 
     def tick(self, time, messenger):
         messenger.updateServer(self)
         instructions = messenger.getInstructionsFromServer(self)
-        if time == self.startTime:
-            self.initialize()
-        if self.ttl != 0:
-            # The drone is carrying out an action.
-            pass
-        elif self.actions and self.actions[0].startTime == time:
-            action = self.actions.pop(0)
-            self.execute(action)
-            # run the action.
-        else:
-            pass
-            # run the instruction
-        messenger.notifyServerForTick()
+        #
+        #
+        # if self.actionTtl != 0:
+        #     # The drone is carrying out an action.
+        #     pass
+        # elif self.actions and self.actions[0].startTime == time:
+        #     action = self.actions.pop(0)
+        #
+        #     # run the action.
+        # else:
+        #     pass
+        #     # run the instruction
+        # messenger.notifyServerForTick()
 

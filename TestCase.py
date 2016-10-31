@@ -12,6 +12,7 @@ class TestCase:
         self.mannedAviation = mannedAviation
         self.serverMessenger = ServerMessenger()
 
+
     def run(self):
         self.serverMessenger.postTestCase(self.noFlyZones, self.mannedAviation)
         i = 0
@@ -23,3 +24,4 @@ class TestCase:
                     return False
             i += 1
         return 0
+
