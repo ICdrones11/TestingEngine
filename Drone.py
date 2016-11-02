@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import PositionConversions
 from Action import Action
-from Logger import Logger
+from Logger import DroneLogger
 from DroneStatus import *
 from PolarCoordinate import PolarCoordinate
 from ServerMessenger import *
@@ -14,12 +14,14 @@ class Drone:
         self.startTime = startTime
         self.waypoints = waypoints
         self.actions = actions # Actions are sorted
-        self.logger = Logger()
         assert waypoints
         self.polarPosition = PolarCoordinate(*waypoints.pointList[0].values())
         self.velocity = Vector()
         self.actionTtl = 0
         self.status = DroneStatus.HOVER
+        self.logger = DroneLogger(uid,self)
+        self.time = 0
+
 
     def getLogger(self):
         return self.logger
@@ -35,12 +37,14 @@ class Drone:
 
 
     def log(self):
-        pass
+        self.logger.log(self.time)
 
 
     def tick(self, time, messenger):
+        self.time = time
         messenger.updateServer(self)
         instructions = messenger.getInstructionsFromServer(self)
+
         #
         #
         # if self.actionTtl != 0:

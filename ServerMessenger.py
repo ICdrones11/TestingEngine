@@ -40,7 +40,7 @@ class ServerMessenger:
         },
         'position': {
             'x': currentPolar.lat,
-            'y': currentPolar.lon,
+            'y': currentPolar.lng,
             'z': currentPolar.alt
         },
         'status':drone.status,

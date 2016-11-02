@@ -6,7 +6,7 @@ from PolarCoordinate import PolarCoordinate
 
 
 def nextPolar(polarCoordinate, velocity):
-    p = utm.from_latlon(polarCoordinate.lat, polarCoordinate.lon)
+    p = utm.from_latlon(polarCoordinate.lat, polarCoordinate.lng)
     nextAltitude = polarCoordinate.alt + velocity.z
     utmEasting = p[0] + Constants.TOWER_LONDON_EASTING + velocity.x
     utmNorthing = p[1] + Constants.TOWER_LONDON_NORTHING + velocity.y

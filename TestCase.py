@@ -10,6 +10,7 @@ class TestCase:
         self.drones = drones
         self.noFlyZones = noFlyZones
         self.mannedAviation = mannedAviation
+        # TODO make this a field in drone
         self.serverMessenger = ServerMessenger()
 
 

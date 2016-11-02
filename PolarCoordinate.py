@@ -11,7 +11,7 @@ class PolarCoordinate:
         return self.position.x
 
     @property
-    def lon(self):
+    def lng(self):
         return self.position.y
 
     @property
